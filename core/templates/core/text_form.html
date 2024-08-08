@@ -1,0 +1,16 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+    <h1>Count words</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if form.is_valid %}
+        <h2>Success!</h2>
+        <p>Number of words: <b>{{ total_words }}</b></p>
+    {% endif %}
+{% endblock %}
